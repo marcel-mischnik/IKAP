@@ -4,7 +4,7 @@ function [AP,AP_tab,K,cost,mincost]=FitActivities(a,data_red,kin,ncon,iter)
 % the cost functions ComputeCostGlobal.m and ComputeCostLocal.m as well as the truth table a. 
 
 % Ncon corresponds to the number of conditions tested (number of columns 
-% with measured values (6 in case of the HeLa data, 12 in case of the insulin data)).
+% with measured values (6 in case of the HeLa data, 8 in case of the insulin data)).
 % Iter determines the number of iterations (for reliable results this should be at least 5).
 
 % The output s is a list of affinity parameters, s_tab allocates these values to their 
