@@ -25,5 +25,4 @@ for i=1:length(psig)
         psig{i,1}=upper(psig{i,1});
     end    
 end
-psig(:,5)={0};
 end
