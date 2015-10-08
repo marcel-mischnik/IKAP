@@ -8,7 +8,7 @@ function [AP,AP_tab,K,cost,mincost]=FitActivities(a,data_red,kin,ncon,iter)
 % Iter determines the number of iterations (for reliable results this should be at least 5).
 
 % The output AP is a list of affinity parameters, AP_tab allocates these values to their 
-% respective kinase-target-pairs using the function sreadout. K contains the fitted kinase activities 
+% respective kinase-target-pairs using the function APReadout. K contains the fitted kinase activities 
 % as a matrix with ncon columns and length(kin) rows. Cost is a matrix containing all calculated costs, 
 % mincost a scalar representing the best optimum found.
 % Parameter bounds and starting values should be modified appropriately.
