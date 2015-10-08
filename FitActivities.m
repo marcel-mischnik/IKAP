@@ -7,8 +7,8 @@ function [AP,AP_tab,K,cost,mincost]=FitActivities(a,data_red,kin,ncon,iter)
 % with measured values (6 in case of the HeLa data, 8 in case of the insulin data)).
 % Iter determines the number of iterations (for reliable results this should be at least 5).
 
-% The output s is a list of affinity parameters, s_tab allocates these values to their 
-% respective kinase-target-pairs using the function sreadout. k contains the fitted kinase activities 
+% The output AP is a list of affinity parameters, AP_tab allocates these values to their 
+% respective kinase-target-pairs using the function sreadout. K contains the fitted kinase activities 
 % as a matrix with ncon columns and length(kin) rows. Cost is a matrix containing all calculated costs, 
 % mincost a scalar representing the best optimum found.
 % Parameter bounds and starting values should be modified appropriately.
@@ -27,7 +27,7 @@ ubk=15;                 % Upper bound for kinase activities, Modify according to
 lb2=lbk*ones(n,1);   
 ub2=ubk*ones(n,1);     
 options = optimoptions('fmincon', 'GradObj', 'on');
-parfor i=1:iter
+for i=1:iter
     J1=10000;
     J2=1000;
     ts=10*rand(sc,1);
