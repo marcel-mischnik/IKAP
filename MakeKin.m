@@ -1,6 +1,6 @@
 function [data_red,kin]=MakeKin(data,kcolumn,kproteome)
 
-% Produces a list of kinases (kin) that are found by search_motifs.m.
+% Produces a list of kinases (kin) that are found by SearchMotifs.m.
 % kcolumn corresponds to the column number of the data matrix containing the kinases.
 % 
 % If proteome data is available (optional one column cell array containing protein IDs (kproteome)), 
@@ -17,21 +17,23 @@ kin=unique(kin);
 
 if nargin==3
     kpr2={};
-    for i=1:length(kin)
+    for i=2:length(kin)
         k1=kin{i};
         for j=1:length(kproteome)
-            k2=kproteome{j,1};
-            f=findstr(k1,k2);
-            if ~isempty(f)
+            k2=kproteome{j};
+            f=strcmp(k1,k2);
+            if sum(f)>0
                 kpr2=[kpr2 k1];
             end
         end
     end
-    kpr2(1)=[];
+    %kpr2(1)=[];
     kpr2=unique(kpr2);
     kin=kpr2;
 end
-kin(1)=[];
+if nargin==2
+    kin(1)=[];
+end
 data_red=cell(1,kcolumn);
 for j=2:length(data)
     b=0;
