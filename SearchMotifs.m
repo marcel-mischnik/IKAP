@@ -42,7 +42,7 @@ if mdata>=mpsp
     end
 else
     for i=1:length(PSP)
-        motpsp=PSP{i,2}(8-mdata:8+mdata);
+        motpsp=PSP{i,2}(8-(mdata-1):8+(mdata-1));
         s=strcmp(motpsp,data(:,2));
         if sum(s)>0
             x=find(s==1);
@@ -50,7 +50,7 @@ else
                 if isempty(data{x(j),end})
                    data{x(j),end}=PSP{i,1};
                 else 
-                   data{x(j),end}=[data{x(j),end} PSP{i,1}];
+                   data{x(j),end}=[data{x(j),end} PSP(i,1)];
                 end
             end
         end
