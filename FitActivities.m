@@ -31,7 +31,7 @@ for i=1:iter
     J1=10000;
     J2=1000;
     ts=10*rand(sc,1);
-    tk=15+(-15*rand(n,ncon));   % Starting values for kinase activities. Modify acording to your needs.
+    tk=15+(-15*rand(n,ncon));   % Starting values for kinase activities. Modify according to your needs.
     while J1-J2>10
           [ts,J1]=fmincon(@(ts)(ComputeCostGlobal(ts,tk,a,data_red,ncon)), ts, [], [], [], [], lb1, ub1, [], options);
           J=zeros(1,ncon);
